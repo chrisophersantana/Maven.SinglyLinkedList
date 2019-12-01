@@ -48,38 +48,37 @@ public class SinglyLinkedList {
 
     }
 
-    public SinglyLinkedList deleter(SinglyLinkedList list,int index) {
+    public SinglyLinkedList deleter(SinglyLinkedList list, int key) {
 
         Node currNode = list.head, prev = null;
 
-        if(index == 0 && currNode != null) {
+        if (key == 0 && currNode != null) {
             list.head = currNode.next;
         }
 
+
+
+
+
+            if (currNode != null && currNode.data == key) {
+                list.head = currNode.next;
+            }
+
+
+            while (currNode != null && currNode.data != key) {
+                prev = currNode;
+                currNode = currNode.next;
+
+            }
+
+            if (currNode != null) {
+                prev.next = currNode.next;
+            }
+
+            if (currNode == null) {
+                System.out.print(key + " not found");
+            }
+            return list;
+        }
     }
-//
-//    public SinglyLinkedList remove(SinglyLinkedList list, int key) {
-//        Node currNode = list.head, prev = null;
-//
-//
-//        if (currNode != null && currNode.data == key) {
-//            list.head = currNode.next;
-//        }
-//
-//
-//        while (currNode != null && currNode.data != key) {
-//            prev = currNode;
-//            currNode = currNode.next;
-//
-//        }
-//
-//        if (currNode != null) {
-//            prev.next = currNode.next;
-//        }
-//
-//        if (currNode == null) {
-//            System.out.print(key + " not found");
-//        }
-//        return list;
-//    }
 }
